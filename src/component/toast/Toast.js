@@ -19,6 +19,7 @@ function Toast(props) {
 
     const dispatch = useDispatch();
     const snackbar = useSelector(state => state.snackbar);
+    const callApiFailed = useSelector(state => state.callApiFailed);
 
     const snackbarTransition = (props) => {
         return <Slide {...props} direction="down" />
@@ -27,7 +28,7 @@ function Toast(props) {
     return (
         <Snackbar className={styles.snackbarResult} open={snackbar} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={60000} TransitionComponent={snackbarTransition}
             onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: null })}>
-            <Alert variant="filled" severity="info" onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: null })}>{snackbar}</Alert>
+            <Alert variant="filled" severity={callApiFailed ? "error" : "info"} onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: null })}>{snackbar}</Alert>
         </Snackbar>
     )
 }

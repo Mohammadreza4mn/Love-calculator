@@ -6,9 +6,8 @@ import Home from './containers/Home';
 import Navbar from './component/navbar/Navbar';
 import Toast from './component/toast/Toast';
 import { Container, CssBaseline, ThemeProvider, createMuiTheme } from '@material-ui/core';
-import { createStore } from 'redux';
-import reducer from './store/reducer';
 import { Provider } from 'react-redux';
+import store from './store/store';
 
 const myTheme = createMuiTheme({
   typography: {
@@ -25,8 +24,6 @@ const myTheme = createMuiTheme({
     }
   }
 });
-
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>

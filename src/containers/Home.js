@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, makeStyles, Box, TextField, Button, CircularProgress, Typography } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined';
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import MoodOutlinedIcon from '@material-ui/icons/MoodOutlined';
-import { getPercentageAPI } from '../api/Api';
 import HistoryTable from '../component/historyTable/HistoryTable';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from '../store/action';
@@ -41,6 +40,7 @@ function Home(props) {
     const resultCalculator = useSelector(state => state.resultCalculator);
     const loading = useSelector(state => state.loading);
     const status = useSelector(state => state.status);
+    const callApiSucceed = useSelector(state => state.callApiSucceed);
 
     const callApi = (event) => {
 
@@ -51,41 +51,37 @@ function Home(props) {
 
             dispatch({ type: actionTypes.setResultCalculator, payload: {} })
             dispatch({ type: actionTypes.setLoading, payload: true })
+            dispatch({ type: actionTypes.percentageApiRequest, payload: name })
+        }
+    };
 
-            getPercentageAPI(name.fName, name.sName)
-                .then(response => {
-                    if (response.status === 200) {
-                        dispatch({ type: actionTypes.setSnackbar, payload: name.fName + " & " + name.sName + " " + response.result })
-                        dispatch({ type: actionTypes.setResultCalculator, payload: response.data })
-                        dispatch({ type: actionTypes.setLoading, payload: false })
-                        saveResult(response.data)
+    useEffect(() => {
+
+        const saveResult = (data) => {
+
+            if (status == "login") {
+
+                let flagAllData = allData
+
+                flagAllData.find((item) => {
+                    if (item.username === userData) {
+                        item.results = item.results ? [...item.results] : []
+                        item.results.push(data)
+                        localStorage.setItem("love-calculator", JSON.stringify(flagAllData))
+
+                        let flagRow = []
+                        item.results.map((result, index) => {
+                            flagRow.push({ id: index + 1, girlName: result.fname, boyName: result.sname, interest: result.percentage, description: result.result, remove: "del" })
+                        })
+                        dispatch({ type: actionTypes.setTableRow, payload: flagRow })
                     }
                 })
-                .catch(e => console.error(e))
-        }
-    };
+                dispatch({ type: actionTypes.percentageApiSucceed, payload: false })
+            }
+        };
+        callApiSucceed == true && saveResult(resultCalculator)
 
-    const saveResult = (data) => {
-
-        if (status == "login") {
-
-            let flagAllData = allData
-
-            flagAllData.find((item) => {
-                if (item.username === userData) {
-                    item.results = item.results ? [...item.results] : []
-                    item.results.push(data)
-                    localStorage.setItem("love-calculator", JSON.stringify(flagAllData))
-
-                    let flagRow = []
-                    item.results.map((result, index) => {
-                        flagRow.push({ id: index + 1, girlName: result.fname, boyName: result.sname, interest: result.percentage, description: result.result, remove: "del" })
-                    })
-                    dispatch({ type: actionTypes.setTableRow, payload: flagRow })
-                }
-            })
-        }
-    };
+    }, [callApiSucceed])
 
     const generateEmoji = (percentage) => {
 

@@ -10,3 +10,6 @@ export const setSnackbar = "setSnackbar";
 export const setLoading = "setLoading";
 export const setUserData = "setUserData";
 export const setTableRow = "setTableRow";
+export const percentageApiRequest = "percentageApiRequest";
+export const percentageApiFailed = "percentageApiFailed";
+export const percentageApiSucceed = "percentageApiSucceed";

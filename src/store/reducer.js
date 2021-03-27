@@ -15,7 +15,7 @@ const inistialState = {
     snackbar: false
 }
 
-const reducer = (state = inistialState, action) => {
+const myReducer = (state = inistialState, action) => {
 
     switch (action.type) {
         case actionTypes.setAllData:
@@ -78,9 +78,19 @@ const reducer = (state = inistialState, action) => {
                 ...state,
                 tableRow: action.payload
             }
+        case actionTypes.percentageApiFailed:
+            return {
+                ...state,
+                callApiFailed: action.payload
+            }
+        case actionTypes.percentageApiSucceed:
+            return {
+                ...state,
+                callApiSucceed: action.payload
+            }
         default:
             return state
     }
 }
 
-export default reducer;
+export default myReducer;
