@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Love-calculator/static/css/main.bdaab0f8.chunk.css",
-    "main.js": "/Love-calculator/static/js/main.f0c73500.chunk.js",
-    "main.js.map": "/Love-calculator/static/js/main.f0c73500.chunk.js.map",
+    "main.js": "/Love-calculator/static/js/main.7f19c363.chunk.js",
+    "main.js.map": "/Love-calculator/static/js/main.7f19c363.chunk.js.map",
     "runtime-main.js": "/Love-calculator/static/js/runtime-main.2acc7a43.js",
     "runtime-main.js.map": "/Love-calculator/static/js/runtime-main.2acc7a43.js.map",
     "static/js/2.0db10d1c.chunk.js": "/Love-calculator/static/js/2.0db10d1c.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.c4984c96.chunk.js": "/Love-calculator/static/js/3.c4984c96.chunk.js",
     "static/js/3.c4984c96.chunk.js.map": "/Love-calculator/static/js/3.c4984c96.chunk.js.map",
     "index.html": "/Love-calculator/index.html",
-    "precache-manifest.661f2b3c54510934186fecb2a98000a7.js": "/Love-calculator/precache-manifest.661f2b3c54510934186fecb2a98000a7.js",
+    "precache-manifest.fe8f2e1cbfa9dc0f12c41803cf734339.js": "/Love-calculator/precache-manifest.fe8f2e1cbfa9dc0f12c41803cf734339.js",
     "service-worker.js": "/Love-calculator/service-worker.js",
     "static/css/main.bdaab0f8.chunk.css.map": "/Love-calculator/static/css/main.bdaab0f8.chunk.css.map",
     "static/js/2.0db10d1c.chunk.js.LICENSE.txt": "/Love-calculator/static/js/2.0db10d1c.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.2acc7a43.js",
     "static/js/2.0db10d1c.chunk.js",
     "static/css/main.bdaab0f8.chunk.css",
-    "static/js/main.f0c73500.chunk.js"
+    "static/js/main.7f19c363.chunk.js"
   ]
 }
