@@ -37,7 +37,7 @@ function HistoryTable(props) {
       if (item.username === userData) {
 
         let flagRow = []
-        item.results.map((result, index) => {
+        item.results && item.results.map((result, index) => {
           flagRow.push({ id: index + 1, girlName: result.fname, boyName: result.sname, interest: result.percentage, description: result.result, remove: "del" })
         })
         dispatch({ type: actionTypes.setTableRow, payload: flagRow })
