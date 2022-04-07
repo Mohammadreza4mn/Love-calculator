@@ -25,9 +25,8 @@ function SignUp(props) {
     const theme = useTheme();
 
     const dispatch = useDispatch();
-    const allData = useSelector(state => state.allData);
-    const signUp = useSelector(state => state.signUp);
-    const validatesignUp = useSelector(state => state.validatesignUp);
+    const { allData, signUp } = useSelector(state => state.localData);
+    const { validatesignUp } = useSelector(state => state.notifications);
 
     const handlerSignUp = (event) => {
 
@@ -51,10 +50,10 @@ function SignUp(props) {
 
                     window.location.reload()
                 } else {
-                    dispatch({ type: actionTypes.setSnackbar, payload: "تکرار رمز عبور یکسان نیست" })
+                    dispatch({ type: actionTypes.setSnackbar, payload: { text: "تکرار رمز عبور یکسان نیست", severity: "warning" } })
                 }
             } else {
-                dispatch({ type: actionTypes.setSnackbar, payload: "نام کاربری قبلا در سیستم ثبت شده است" })
+                dispatch({ type: actionTypes.setSnackbar, payload: { text: "نام کاربری قبلا در سیستم ثبت شده است", severity: "error" } })
             }
         }
     };

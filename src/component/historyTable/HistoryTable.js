@@ -17,9 +17,7 @@ function HistoryTable(props) {
 
   const dispatch = useDispatch();
 
-  const allData = useSelector(state => state.allData);
-  const userData = useSelector(state => state.userData);
-  const tableRow = useSelector(state => state.tableRow);
+  const { allData, userData, tableRow } = useSelector(state => state.localData);
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70, disableClickEventBubbling: true },

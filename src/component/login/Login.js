@@ -25,9 +25,8 @@ function Login(props) {
     const theme = useTheme();
 
     const dispatch = useDispatch();
-    const allData = useSelector(state => state.allData);
-    const userAccount = useSelector(state => state.userAccount);
-    const status = useSelector(state => state.status);
+    const { allData, userAccount } = useSelector(state => state.localData);
+    const { status } = useSelector(state => state.notifications);
 
     const handlerLogin = (event) => {
         event.preventDefault()
@@ -58,7 +57,7 @@ function Login(props) {
             localStorage.setItem("love-calculator_user", userAccount.username)
             window.location.reload();
         } else {
-            dispatch({ type: actionTypes.setSnackbar, payload: "رمز کاربری نادرست است" })
+            dispatch({ type: actionTypes.setSnackbar, payload: { text: "رمز کاربری نادرست است", severity: "warning" } })
         }
     };
 

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, makeStyles, Box, TextField, Button, CircularProgress, Typography } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined';
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
 import MoodOutlinedIcon from '@material-ui/icons/MoodOutlined';
-import { getPercentageAPI } from '../api/Api';
 import HistoryTable from '../component/historyTable/HistoryTable';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from '../store/action';
+import { percentageAction, checkIpAction } from '../store/thunk';
 
 const myStyles = makeStyles((theme) => ({
     btn: {
@@ -34,13 +34,12 @@ function Home(props) {
 
     const dispatch = useDispatch();
 
-    const allData = useSelector(state => state.allData);
-    const userData = useSelector(state => state.userData);
-    const name = useSelector(state => state.name);
-    const validateForm = useSelector(state => state.validateForm);
-    const resultCalculator = useSelector(state => state.resultCalculator);
-    const loading = useSelector(state => state.loading);
-    const status = useSelector(state => state.status);
+    const { allData, userData, name, resultCalculator } = useSelector(state => state.localData);
+    const { validateForm, loading, status } = useSelector(state => state.notifications);
+
+    useEffect(() => {
+        dispatch(checkIpAction())
+    }, [])
 
     const callApi = (event) => {
 
@@ -49,19 +48,7 @@ function Home(props) {
 
         if (Object.values(name).every(value => value.trim())) {
 
-            dispatch({ type: actionTypes.setResultCalculator, payload: {} })
-            dispatch({ type: actionTypes.setLoading, payload: true })
-
-            getPercentageAPI(name.fName, name.sName)
-                .then(response => {
-                    if (response.status === 200) {
-                        dispatch({ type: actionTypes.setSnackbar, payload: name.fName + " & " + name.sName + " " + response.result })
-                        dispatch({ type: actionTypes.setResultCalculator, payload: response.data })
-                        dispatch({ type: actionTypes.setLoading, payload: false })
-                        saveResult(response.data)
-                    }
-                })
-                .catch(e => console.error(e))
+            dispatch(percentageAction(saveResult))
         }
     };
 
@@ -136,7 +123,7 @@ function Home(props) {
                     <Box m={1.5}>
                         <Typography align="center" variant="subtitle1">
                             برای مشاهده لیست نتایج با حساب کاربری وارد شوید
-                    </Typography>
+                        </Typography>
                     </Box>
                     <Button fullWidth={true} size="large" variant="contained" color="primary" onClick={() => dispatch({ type: actionTypes.setStatus, payload: "username" })}>
                         ورود به حساب کاربری

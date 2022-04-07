@@ -18,16 +18,16 @@ function Toast(props) {
     const styles = myStyles();
 
     const dispatch = useDispatch();
-    const snackbar = useSelector(state => state.snackbar);
+    const { snackbar } = useSelector(state => state.notifications);
 
     const snackbarTransition = (props) => {
         return <Slide {...props} direction="down" />
     };
 
     return (
-        <Snackbar className={styles.snackbarResult} open={snackbar} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={60000} TransitionComponent={snackbarTransition}
-            onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: null })}>
-            <Alert variant="filled" severity="info" onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: null })}>{snackbar}</Alert>
+        <Snackbar className={styles.snackbarResult} open={Boolean(snackbar.text)} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={60000} TransitionComponent={snackbarTransition}
+            onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: { text: "", severity: "" } })}>
+            <Alert variant="filled" severity={snackbar.severity} onClose={() => dispatch({ type: actionTypes.setSnackbar, payload: { text: "", severity: "" } })}>{snackbar.text}</Alert>
         </Snackbar>
     )
 }

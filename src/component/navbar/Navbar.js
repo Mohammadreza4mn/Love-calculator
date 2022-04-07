@@ -24,8 +24,8 @@ function Navbar(props) {
 
     const dispatch = useDispatch();
 
-    const status = useSelector(state => state.status);
-    const userData = useSelector(state => state.userData);
+    const { status } = useSelector(state => state.notifications);
+    const { userData } = useSelector(state => state.localData);
 
     useEffect(() => {
 
