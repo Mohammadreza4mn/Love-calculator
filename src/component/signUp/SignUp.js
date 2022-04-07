@@ -25,9 +25,7 @@ function SignUp(props) {
     const theme = useTheme();
 
     const dispatch = useDispatch();
-    const allData = useSelector(state => state.allData);
-    const signUp = useSelector(state => state.signUp);
-    const validatesignUp = useSelector(state => state.validatesignUp);
+    const { allData, signUp, validatesignUp } = useSelector(state => state);
 
     const handlerSignUp = (event) => {
 

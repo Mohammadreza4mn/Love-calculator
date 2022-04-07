@@ -24,8 +24,7 @@ function Navbar(props) {
 
     const dispatch = useDispatch();
 
-    const status = useSelector(state => state.status);
-    const userData = useSelector(state => state.userData);
+    const { status, userData } = useSelector(state => state);
 
     useEffect(() => {
 
