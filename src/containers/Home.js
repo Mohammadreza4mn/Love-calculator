@@ -33,14 +33,7 @@ function Home(props) {
 
     const dispatch = useDispatch();
 
-    const allData = useSelector(state => state.allData);
-    const userData = useSelector(state => state.userData);
-    const name = useSelector(state => state.name);
-    const validateForm = useSelector(state => state.validateForm);
-    const resultCalculator = useSelector(state => state.resultCalculator);
-    const loading = useSelector(state => state.loading);
-    const status = useSelector(state => state.status);
-    const callApiSucceed = useSelector(state => state.callApiSucceed);
+    const { allData, userData, name, validateForm, resultCalculator, loading, status, callApiSucceed } = useSelector(state => state);
 
     const callApi = (event) => {
 
@@ -82,6 +75,10 @@ function Home(props) {
         callApiSucceed == true && saveResult(resultCalculator)
 
     }, [callApiSucceed])
+
+    useEffect(() => {
+        dispatch({ type: actionTypes.checkIp })
+    }, [])
 
     const generateEmoji = (percentage) => {
 
@@ -132,7 +129,7 @@ function Home(props) {
                     <Box m={1.5}>
                         <Typography align="center" variant="subtitle1">
                             برای مشاهده لیست نتایج با حساب کاربری وارد شوید
-                    </Typography>
+                        </Typography>
                     </Box>
                     <Button fullWidth={true} size="large" variant="contained" color="primary" onClick={() => dispatch({ type: actionTypes.setStatus, payload: "username" })}>
                         ورود به حساب کاربری

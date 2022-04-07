@@ -88,6 +88,8 @@ const myReducer = (state = inistialState, action) => {
                 ...state,
                 callApiSucceed: action.payload
             }
+        case actionTypes.checkIp:
+            return state
         default:
             return state
     }

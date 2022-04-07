@@ -13,3 +13,4 @@ export const setTableRow = "setTableRow";
 export const percentageApiRequest = "percentageApiRequest";
 export const percentageApiFailed = "percentageApiFailed";
 export const percentageApiSucceed = "percentageApiSucceed";
+export const checkIp = "checkIp";

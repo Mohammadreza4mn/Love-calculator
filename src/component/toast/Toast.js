@@ -18,8 +18,7 @@ function Toast(props) {
     const styles = myStyles();
 
     const dispatch = useDispatch();
-    const snackbar = useSelector(state => state.snackbar);
-    const callApiFailed = useSelector(state => state.callApiFailed);
+    const { snackbar, callApiFailed } = useSelector(state => state);
 
     const snackbarTransition = (props) => {
         return <Slide {...props} direction="down" />

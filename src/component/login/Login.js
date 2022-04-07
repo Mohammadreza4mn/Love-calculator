@@ -25,9 +25,7 @@ function Login(props) {
     const theme = useTheme();
 
     const dispatch = useDispatch();
-    const allData = useSelector(state => state.allData);
-    const userAccount = useSelector(state => state.userAccount);
-    const status = useSelector(state => state.status);
+    const { allData, userAccount, status } = useSelector(state => state);
 
     const handlerLogin = (event) => {
         event.preventDefault()

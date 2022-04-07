@@ -15,3 +15,4 @@ export const getPercentageAPI = async (fname, sname) => {
     );
     return response;
 };
+export const checkIpAPI = () => axios.get('http://ip-api.com/json/?fields=status,message,country');
