@@ -66,7 +66,7 @@ function HistoryTable(props) {
   return (
     <DataGrid loading={tableRow ? false : true} className={styles.root} rows={tableRow || []}
       columns={columns} pageSize={5}
-      disableMultipleSelection={true} onRowSelected={(item) => removeItem(item.data.id)} />
+      disableMultipleSelection={true} onRowClick={(item) => removeItem(item.id)} />
   )
 }
 
