@@ -13,14 +13,14 @@ export const percentageAction = (saveResult) => async (dispatch, getState) => {
         if (response.status == 200) {
             dispatch({ type: actionTypes.setSnackbar, payload: { text: name.fName + " & " + name.sName + " " + response.data.result, severity: "info" } })
             dispatch({ type: actionTypes.setResultCalculator, payload: response.data })
-            dispatch({ type: actionTypes.setLoading, payload: false })
             saveResult(response.data)
         }
 
-
     } catch (error) {
-
         dispatch({ type: actionTypes.setSnackbar, payload: { text: error.message, severity: "error" } })
+    }
+    finally {
+        dispatch({ type: actionTypes.setLoading, payload: false })
     }
 };
 
@@ -28,7 +28,7 @@ export const checkIpAction = () => async (dispatch) => {
     try {
         const { data } = await checkIpAPI()
 
-        if (data.status == "success" && data.country == "Iran") {
+        if (data.success == true && data.country == "Iran") {
             dispatch({ type: actionTypes.setSnackbar, payload: { text: <div class='flex' dir='rtl'>فیلتر شکن شما خاموش است، در این برنامه از api استفاده شده است که ایران را تحریم کرده است، لطفا IP خود را به خارج ایران تغییر دهید</div>, severity: "warning" } })
         }
 

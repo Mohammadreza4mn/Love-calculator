@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const checkIpAPI = () => axios.get('http://ip-api.com/json/?fields=status,message,country');
+export const checkIpAPI = () => axios.get('https://ipwhois.app/json/?objects=country,success,message');
 
 export const getPercentageAPI = (fname, sname) => axios.request(
     {
