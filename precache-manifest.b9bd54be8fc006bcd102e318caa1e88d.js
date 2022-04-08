@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d7a963dc70e7353f6aea64264fd9d1e7",
+    "revision": "bc5f5f3002b1c235b6e52dbc600b52a6",
     "url": "/Love-calculator/index.html"
   },
   {
-    "revision": "ab0a44c6315d9dcf2e2b",
+    "revision": "2461f6538dd2383c510e",
     "url": "/Love-calculator/static/css/main.ab52d094.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Love-calculator/static/js/3.69c7db37.chunk.js"
   },
   {
-    "revision": "ab0a44c6315d9dcf2e2b",
-    "url": "/Love-calculator/static/js/main.48b8ad01.chunk.js"
+    "revision": "2461f6538dd2383c510e",
+    "url": "/Love-calculator/static/js/main.aaeb0b49.chunk.js"
   },
   {
     "revision": "c7bc33bebd7cc68cbef3",
