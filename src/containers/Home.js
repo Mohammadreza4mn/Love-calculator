@@ -39,7 +39,7 @@ function Home(props) {
     useEffect(() => {
         checkIpAPI()
             .then(({ data }) => {
-                if (data.status == "success" && data.country == "Iran") {
+                if (data.success == true && data.country == "Iran") {
                     dispatch({ type: actionTypes.setSnackbar, payload: <div className='flex' dir='rtl'>فیلتر شکن شما خاموش است، در این برنامه از api استفاده شده است که ایران را تحریم کرده است، لطفا IP خود را به خارج ایران تغییر دهید</div> })
                 }
             })
