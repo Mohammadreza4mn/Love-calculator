@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb42b8b57fb287a36e5968f5261cd22c",
+    "revision": "d7a963dc70e7353f6aea64264fd9d1e7",
     "url": "/Love-calculator/index.html"
   },
   {
-    "revision": "27aab64e8fca900eeafb",
-    "url": "/Love-calculator/static/css/main.bdaab0f8.chunk.css"
+    "revision": "ab0a44c6315d9dcf2e2b",
+    "url": "/Love-calculator/static/css/main.ab52d094.chunk.css"
   },
   {
-    "revision": "0a3ab53b8cce37a81435",
-    "url": "/Love-calculator/static/js/2.0db10d1c.chunk.js"
+    "revision": "209dfd05a3ab1ef983fb",
+    "url": "/Love-calculator/static/js/2.8daf1f32.chunk.js"
   },
   {
-    "revision": "1fab76129d57290d93b752be1cdae21d",
-    "url": "/Love-calculator/static/js/2.0db10d1c.chunk.js.LICENSE.txt"
+    "revision": "f54f31cb69a00bc5b84c0fe167ffd191",
+    "url": "/Love-calculator/static/js/2.8daf1f32.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "714c2c2baedcec5622df",
-    "url": "/Love-calculator/static/js/3.c4984c96.chunk.js"
+    "revision": "4d0edcc599847d9b4f26",
+    "url": "/Love-calculator/static/js/3.69c7db37.chunk.js"
   },
   {
-    "revision": "27aab64e8fca900eeafb",
-    "url": "/Love-calculator/static/js/main.7f19c363.chunk.js"
+    "revision": "ab0a44c6315d9dcf2e2b",
+    "url": "/Love-calculator/static/js/main.48b8ad01.chunk.js"
   },
   {
-    "revision": "ff3dcea5a70e521860e2",
-    "url": "/Love-calculator/static/js/runtime-main.2acc7a43.js"
+    "revision": "c7bc33bebd7cc68cbef3",
+    "url": "/Love-calculator/static/js/runtime-main.b5889020.js"
   },
   {
     "revision": "071f0c0d334fd089d6cedc0190f28873",
