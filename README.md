@@ -2,6 +2,7 @@
 :cupid: Enter your name and the name of your partner/lover/crush to find Love compatibility & chances of successful love relationship. <br />
 This project was [material-ui](https://material-ui.com) with [Create React App](https://github.com/facebook/create-react-app) <br/>
 :satellite: I used api for app [rapidapi](https://rapidapi.com/) <br/>
+:man_facepalming: Due to the lack of access to Rapidapi, I suggest using vpn to run the program correctly and completely
 
 ## Available Scripts
 
